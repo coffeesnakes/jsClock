@@ -20,7 +20,7 @@
 
   <style>
     html {
-      background: #018DED url(https://unsplash.it/1500/1000?image=881&blur=5);
+      background: #018DED url(https://i.imgur.com/sRpDOp3.jpg);
       background-size: cover;
       font-family: 'helvetica neue';
       text-align: center;
@@ -65,10 +65,30 @@
       background: black;
       position: absolute;
       top: 50%;
+      transform-origin: 100%;
+      transform: rotate(90deg);
+      transition: all 0.05s;
     }
   </style>
 <!-- VANILLA JS CODE IN SCRIPT TAGS BELOW -->
   <script>
+
+const secondHand = document.querySelector('.second-hand');
+const minsHand = document.querySelector('.min-hand');
+const hoursHand = document.querySelector('.hour-hand');
+function setDate() {
+const now = new Date();
+const seconds = now.getSeconds();
+console.log(seconds)
+const secondsDegree = ((seconds / 60) * 360) + 90;
+secondHand.style.transform =  `rotate(${secondsDegree}deg)`;
+const mins = now.getMinutes();
+const minsDegree = ((mins / 60) * 360) + 90;
+}
+
+setInterval(setDate, 1000)
+
+
 
 
   </script>
